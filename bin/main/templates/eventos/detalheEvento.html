@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Detalhe do evento</title>
+	</head>
+	<body>
+		<nav class="teal lighten-2">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">GerEvento</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/eventos">Lista de eventos</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container col s6">
+			<div class="row">
+				<div class="input-field col s12">
+					<input disabled th:value="${evento.nome}" id="nome" type="text" class="validate">
+					<label for="nome">Nome</label>
+				</div>
+				<div class="input-field col s12">
+					<input disabled th:value="${evento.local}" id="local" type="text" class="validate">
+					<label for="local">Local</label>
+				</div>
+				<div class="input-field col s6">
+					<input disabled th:value="${evento.data}" id="data" type="text" class="validate">
+					<label for="data">Data</label>
+				</div>
+				<div class="input-field col s6">
+					<input disabled th:value="${evento.horario}" id="horario" type="text" class="validate">
+					<label for="horario">Horario</label>
+				</div>
+			</div>
+			<h4>Cadastrar convidado</h4>
+			<form class="col s6" method="post">
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="rneConvidado" type="text" class="validate" value="" name="rneConvidado">
+						<label for="rneConvidado">RNE</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="nomeConvidado" type="text" class="validate" value="" name="nomeConvidado">
+						<label for="nomeConvidado">Nome</label>
+					</div>
+				</div>
+				<button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+					<i class="material-icons right">send</i>
+				</button>
+			</form>
+			<h4>Lista de convidados</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>RNE</th>
+						<th>Nome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="convidado:${convidados}">
+						<td><span th:text="${convidado.rneConvidado}"></span></td>
+						<td><span th:text="${convidado.nomeConvidado}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+	</body>
+</html>

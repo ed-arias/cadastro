@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Lista de eventos</title>
+	</head>
+	<body>
+		<nav class="teal lighten-2">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">GerEvento</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarEvento">Cadastrar Evento</a></li>
+				</ul>
+			</div>
+		</nav>
+		<table class="container">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horario</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="evento:${eventos}">
+					<td>
+						<a th:href="${(#mvc.url('EC#detalheEvento').arg(0, evento.id)).build()}" class="waves-effect waves-light btn-small">info
+							<i class="material-icons left">info</i>
+						</a>
+					</td>
+					<td><span th:text="${evento.nome}"></span></td>
+					<td><span th:text="${evento.local}"></span></td>
+					<td><span th:text="${evento.data}"></span></td>
+					<td><span th:text="${evento.horario}"></span></td>
+					<td>
+						<a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.id)).build()}" class="waves-effect waves-light btn-small">delete
+							<i class="material-icons left">delete</i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	</body>
+</html>

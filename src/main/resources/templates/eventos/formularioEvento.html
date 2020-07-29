@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Cadastro de eventos</title>
+	</head>
+	<body>
+        <nav class="teal lighten-2">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">GerEvento</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/eventos">Lista de eventos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <form class="col s6" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="nome" type="text" class="validate" value="" name="nome">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="local" type="text" class="validate" value="" name="local">
+                        <label for="local">Local</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="data" type="text" class="datepicker" name="data">
+                        <label for="data">Data</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="horario" type="text" class="timepicker" name="horario">
+                        <label for="horario">Horario</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+	</body>
+</html>
